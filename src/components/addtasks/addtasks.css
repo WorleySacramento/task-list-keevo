@@ -1,0 +1,17 @@
+.addContainer{
+    display: flex;
+    margin: 15px 0;
+    width: 100%;
+}
+
+.addInput{
+height: 50px;
+padding: 0 10px;
+flex :2;
+width: 100%;
+}
+
+.buttonContainer{
+    margin-left: 8px;
+    flex: 1;
+}

@@ -7,6 +7,26 @@
   pointer-events: none;
 }
 
+.wrapper{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100%;
+}
+
+.container{
+  display: flex;
+  max-width: 400px;
+  max-height: 500px;
+  min-width: 250px;
+  min-height: 300px;
+  border: 1px solid red;
+  align-items: baseline;
+  justify-content: center;
+}
+
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -27,6 +47,8 @@
 .App-link {
   color: #61dafb;
 }
+
+
 
 @keyframes App-logo-spin {
   from {

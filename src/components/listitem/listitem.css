@@ -1,0 +1,8 @@
+.containerItem{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    background-color: beige;
+    height: 80px;
+    border:1px solid black
+}
