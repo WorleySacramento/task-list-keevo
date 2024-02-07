@@ -4,5 +4,9 @@
     width: 100%;
     cursor: pointer;
     color: white;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+    border-radius: 10px;
 }
 

@@ -1,22 +1,20 @@
 import React from "react";
 import ListItem from "../listitem/listItem";
 
-const Tasks = ({tasks, handleTaskState, handleRemoveTask, handleTaskEdit, handleEditTask}) => {
-    console.log(tasks);
+const EditTask = ({editingTask, handleTaskState, handleRemoveTask, handleEditTask}) => {
     return ( 
         <div style={{height:300}}>
-        { tasks?.map((task) =>( 
-            <div key={task.id}>
-            <ListItem task={task}  
+        { editingTask && (
+            <div>
+            <ListItem task={editingTask}  
             handleTaskState={handleTaskState} 
             handleRemoveTask={handleRemoveTask} 
             handleEditTask={handleEditTask} // Adicione esta linha
-            // handleTaskEdit={handleTaskEdit}
             />
             </div>
-            ))}
+            )}
         </div>
      );
 }
  
-export default Tasks;
+export default EditTask;

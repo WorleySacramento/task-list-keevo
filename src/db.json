@@ -2,52 +2,15 @@
     "tarefas": [
       {
         "id": 1,
-        "titulo": "Estudar para a prova",
-        "descrição": "Estudar para a prova de matemática na próxima semana",
-        "estado": "pendente"
+        "title": "Estudar para a prova",
+        "description": "Estudar para a prova de matemática na próxima semana",
+        "complete": false
       },
       {
         "id": 2,
-        "titulo": "Comprar mantimentos",
-        "descrição": "Comprar leite, ovos, pão e frutas",
-        "estado": "concluído"
-      },
-      {
-        "id": 3,
-        "titulo": "Marcar consulta médica",
-        "descrição": "Marcar consulta com o dentista para o próximo mês",
-        "estado": "pendente"
-      },
-      {
-        "id": 4,
-        "titulo": "Limpar a casa",
-        "descrição": "Limpar a sala e a cozinha",
-        "estado": "pendente"
-      },
-      {
-        "id": 5,
-        "titulo": "Fazer exercícios",
-        "descrição": "Fazer uma hora de exercícios na academia",
-        "estado": "concluído"
-      },
-      {
-        "id": 6,
-        "titulo": "Ler um livro",
-        "descrição": "Ler o livro 'O Alquimista'",
-        "estado": "pendente"
-      },
-      {
-        "id": 7,
-        "titulo": "Pagar contas",
-        "descrição": "Pagar a conta de luz e internet",
-        "estado": "concluído"
-      },
-      {
-        "id": 8,
-        "titulo": "Comprar ração para o cachorro",
-        "descrição": "Comprar ração para o Bob",
-        "estado": "pendente"
+        "title": "Comprar mantimentos",
+        "description": "Comprar leite, ovos, pão e frutas",
+        "complete": false
       }
     ]
   }
-  

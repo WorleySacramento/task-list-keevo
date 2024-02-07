@@ -1,30 +1,35 @@
 import { useState } from "react";
 import './listitem.css'
+import { Card, CardContent, CardHeader, Button, IconButton, CardActions } from '@mui/material'
+import { DeleteOutline, Edit } from "@mui/icons-material";
+import Checkbox from '@mui/material/Checkbox';
 
 
 
-const ListItem = ({task}) => {
+const ListItem = ({ task, handleTaskState, handleRemoveTask, handleEditTask, handleOpenEdiModal }) => {
     return (
-        <div className="containerItem">
-            <h2>{task.titulo}</h2>
-            <p>{task.descrição}</p>
-            <p>{task.estado}</p>
-        </div>
+        <Card className="card" style={task.complete ? { background: '#7fff7f', borderColor: "#4caf20", color: '#404040', borderStyle: "solid" } : {}}>
+            <CardHeader className="title" title={<span>{task.title}</span>} />
+            <CardContent className="containerItem">
+                <span>{task.description}</span>
+                <span>{task.complete}</span>
+            </CardContent>
+            <CardActions className="buttons">
+                <Checkbox
+                    checked={task.complete}
+                    onChange={() => handleTaskState(task.id)}
+                />
+
+                <IconButton onClick={() =>handleOpenEdiModal(task)}>
+                    <Edit color="info"/>
+                </IconButton>
+                
+                <IconButton onClick={() => handleRemoveTask(task.id)}><DeleteOutline color="error" /></IconButton>
+
+            </CardActions>
+        </Card>
     );
 }
 
- 
+
 export default ListItem;
-
-
-{/* <div className="containeritem">
-
-<div>
-<h2 className="text-xl font-semibold">ListItem Title</h2>
-</div>
-    <div></div>
-<div>
-<button>mudar msg</button>
-</div>
-
-</div> */}
