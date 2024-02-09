@@ -24,29 +24,33 @@ const AddTask = ({ handleTaskAdd }) => {
 
   return (
     <div className='addContainer'>
+      <form>
       <div className='inputFields'>
-        {/* <h3 className='header'>Nova Tarefa</h3> */}
         <div className='addInputTitle'>
           <input
             placeholder='Titulo'
             type='text'
             onChange={handleChangeTitle}
             value={taskTitle}
+            required
           />
         </div>
         <div className='addInputDescription'>
-          <input
+          <textarea
             placeholder="Descrição da Tarefa"            
             value={taskDescription}
             onChange={handleChangeDescription}
+            rows={2}
+            cols={10}
           />
         </div>
       </div>
       <div className='buttonContainer'>
-        <IconButton onClick={handleClickAddTask}>
+        <IconButton type='submit' onClick={handleClickAddTask}>
           <AddCircleOutline />
         </IconButton>
       </div>
+      </form>
     </div>
   );
 };

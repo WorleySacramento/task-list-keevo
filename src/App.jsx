@@ -4,67 +4,26 @@ import tarefas from './db.json'
 import Tasks from "./components/tasks/tasks";
 import AddTask from "./components/addtasks/AddTasks";
 import EditTask from "./components/ModalEdit/EditTask"
-import {Modal} from '@mui/material'
+import { Modal } from '@mui/material'
 
 
 const App = () => {
-  // const [tasks, setTasks] = useState(tarefas.tarefas)
-  // const [completedTasks, setCompletedTasks] = useState([]);
-
-  // const handleTaskAdd = (title, description) => {
-  //   const newTask = [...tasks, {
-  //     id: Math.random().toString(),
-  //     title: title,
-  //     description: description,
-  //     complete: false
-  //   }];
-  //   setTasks(newTask);
-  // };
-
-  // const handleRemoveTask = (taskId) => {
-  //   const newTask = tasks.filter(task => task.id !== taskId);
-  //   setTasks(newTask);
-  //   setCompletedTasks(completedTasks.filter(task => task.id !== taskId));
-  // };
-
-  // const handleTaskState = (taskId) => {
-  //   const updatedTasks = tasks.map(task => {
-  //     if (task.id === taskId) {
-  //       task.complete = !task.complete;
-  //       if (task.complete) {
-  //         setCompletedTasks([...completedTasks, task]);
-  //         return null; // Remove da lista de tarefas
-  //       }
-  //     }
-  //     return task;
-  //   }).filter(Boolean); // Remove elementos nulos
-  //   setTasks(updatedTasks);
-  // };
-
-  // const handleTaskEdit = (taskId, newTitle, newDescription) => {
-  //   const newTasks = tasks.map(task => {
-  //     if (task.id === taskId) {
-  //       return { ...task, title: newTitle, description: newDescription };
-  //     }
-  //     return task;
-  //   });
-  //   setTasks(newTasks);
-  // };
-
   const [tasks, setTasks] = useState(tarefas.tarefas);
   const [completedTasks, setCompletedTasks] = useState([]);
   const [editingTask, setEditingTask] = useState(null);
   const [openEditModal, setOpenEditModal] = useState(false); // Estado para controlar a abertura e fechamento do modal
 
   const handleTaskAdd = (title, description) => {
-    const newTask = [...tasks, {
+    const newTask = {
       id: Math.random().toString(),
       title: title,
       description: description,
-      complete: false
-    }];
-    setTasks(newTask);
+      complete: false,
+      inProgress: false
+    };
+    setTasks([...tasks, newTask]);
   };
+
 
   const handleRemoveTask = (taskId) => {
     const newTask = tasks.filter(task => task.id !== taskId);
@@ -73,17 +32,31 @@ const App = () => {
   };
 
   const handleTaskState = (taskId) => {
-    const updatedTasks = tasks.map(task => {
-      if (task.id === taskId) {
-        task.complete = !task.complete;
-        if (task.complete) {
-          setCompletedTasks([...completedTasks, task]);
-          return null; // Remove da lista de tarefas
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === taskId) {
+          task.complete = !task.complete; // Atualiza o estado da tarefa como completa
+          if (task.complete) {
+            // Move a tarefa para a lista de tarefas finalizadas
+            setCompletedTasks([...completedTasks, task]);
+          } else {
+            // Remove a tarefa da lista de tarefas finalizadas
+            setCompletedTasks(completedTasks.filter((t) => t.id !== taskId));
+          }
         }
+        return task;
+      })
+    );
+  };
+
+
+  const handleTaskInProgress = (taskId) => {
+    setTasks(tasks.map((task) => {
+      if (task.id === taskId) {
+        task.inProgress = !task.inProgress;
       }
       return task;
-    }).filter(Boolean); // Remove elementos nulos
-    setTasks(updatedTasks);
+    }));
   };
 
   const handleEditTask = (taskId, newTitle, newDescription) => {
@@ -95,9 +68,10 @@ const App = () => {
       return task;
     });
     setTasks(updatedTasks);
-    setEditingTask(null); // Fechar modal de edição
-    setOpenEditModal(false); // Fechar o modal usando o estado
+    setEditingTask(null);
+    setOpenEditModal(false);
   };
+
 
   const handleOpenEditModal = (task) => {
     setEditingTask(task);
@@ -118,7 +92,7 @@ const App = () => {
       >
         <div className="addTask">
           <div className="titleAddTask">
-          <h2> Adicionar Tarefa</h2>
+            <h2> Adicionar Tarefa</h2>
           </div>
 
           <AddTask
@@ -128,44 +102,57 @@ const App = () => {
 
         <div className="tasks">
           <div className="column">
-            <h2>Tarefas</h2>
+            <h2>Tarefas Adicionadas</h2>
             <div className="content">
 
-              <Tasks tasks={tasks}
+              <Tasks
+                //tarefas não em andamento e não completas
+                tasks={tasks.filter((task) => !task.inProgress && !task.complete)}
                 handleTaskState={handleTaskState}
                 handleRemoveTask={handleRemoveTask}
                 handleEditTask={handleEditTask}
                 handleOpenEditModal={handleOpenEditModal}
+                handleTaskInProgress={handleTaskInProgress}
               />
             </div>
 
           </div>
+
+          <div className="column">
+            <h2>Em Andamento</h2>
+            <div className="content">
+              <Tasks
+                // tarefas em andamento e não completas
+                tasks={tasks.filter((task) => task.inProgress && !task.complete)}
+                handleTaskState={handleTaskState}
+                handleRemoveTask={handleRemoveTask}
+                handleOpenEditModal={handleOpenEditModal}
+                handleTaskInProgress={handleTaskInProgress}
+              />
+            </div>
+          </div>
           <div className="column">
             <h2>Finalizadas</h2>
             <div className="content">
-            <Tasks 
+              <Tasks
                 tasks={completedTasks}
                 handleTaskState={handleTaskState}
                 handleRemoveTask={handleRemoveTask}
-                // handleTaskEdit={handleTaskEdit}
                 handleOpenEditModal={handleOpenEditModal}
+                handleTaskInProgress={handleTaskInProgress}
               />
             </div>
           </div>
         </div>
 
-      <Modal open={openEditModal}
-      onClose={handleCloseEditModal}
-
-      >
-        <EditTask
-          task={editingTask}
-          handleEditTask={handleEditTask}
-          handleCloseEditModal={handleCloseEditModal}
+        <Modal open={openEditModal}
+          onClose={handleCloseEditModal}>
+          <EditTask
+            task={editingTask}
+            handleEditTask={handleEditTask}
+            handleCloseEditModal={handleCloseEditModal}
           />
-          </Modal>
-    
-
+        </Modal>
       </div>
     </div>
   );

@@ -1,20 +1,29 @@
-import React from "react";
-import ListItem from "../listitem/listItem";
+import React, { useState } from 'react';
 
-const EditTask = ({editingTask, handleTaskState, handleRemoveTask, handleEditTask}) => {
-    return ( 
-        <div style={{height:300}}>
-        { editingTask && (
-            <div>
-            <ListItem task={editingTask}  
-            handleTaskState={handleTaskState} 
-            handleRemoveTask={handleRemoveTask} 
-            handleEditTask={handleEditTask} // Adicione esta linha
-            />
-            </div>
-            )}
-        </div>
-     );
-}
- 
+const EditTask = ({ task, handleEditTask, handleCloseEditModal }) => {
+  const [newTitle, setNewTitle] = useState(task.title);
+  const [newDescription, setNewDescription] = useState(task.description);
+
+  const handleSaveEdit = () => {
+    handleEditTask(task.id, newTitle, newDescription);
+  };
+
+  return (
+    <div className="edit-modal">
+      <input
+        type="text"
+        value={newTitle}
+        onChange={(e) => setNewTitle(e.target.value)}
+      />
+      <input
+        type="text"
+        value={newDescription}
+        onChange={(e) => setNewDescription(e.target.value)}
+      />
+      <button onClick={handleSaveEdit}>Salvar</button>
+      <button onClick={handleCloseEditModal}>Cancelar</button>
+    </div>
+  );
+};
+
 export default EditTask;

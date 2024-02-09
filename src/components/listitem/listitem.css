@@ -12,7 +12,9 @@
    display: flex;
    margin-top: -15px;
    text-align: left;
-   padding:3px
+   padding:3px;
+   overflow-y: auto;
+   height: 50px;
 }
 
 .title{

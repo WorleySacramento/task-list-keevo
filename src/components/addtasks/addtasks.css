@@ -42,7 +42,7 @@
 
 .addInputDescription input{
     display: flex;
-    width: 100%;
+    width: 500px;
     border-radius: 5px;
     align-items: baseline;
     outline: none;

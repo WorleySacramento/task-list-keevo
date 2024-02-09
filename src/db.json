@@ -4,13 +4,15 @@
         "id": 1,
         "title": "Estudar para a prova",
         "description": "Estudar para a prova de matemática na próxima semana",
-        "complete": false
+        "complete": false,
+        "inProgress": false 
       },
       {
         "id": 2,
         "title": "Comprar mantimentos",
         "description": "Comprar leite, ovos, pão e frutas",
-        "complete": false
+        "complete": false,
+        "inProgress": false 
       }
     ]
   }
