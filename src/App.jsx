@@ -84,27 +84,20 @@ const App = () => {
   };
 
   return (
-    <div
-      className="wrapper"
-    >
-      <div
-        className="container"
-      >
+    <div className="wrapper">
+      <div className="container">
+
         <div className="addTask">
           <div className="titleAddTask">
             <h2> Adicionar Tarefa</h2>
           </div>
-
-          <AddTask
-            handleTaskAdd={handleTaskAdd}
-          />
+          <AddTask handleTaskAdd={handleTaskAdd} />
         </div>
 
         <div className="tasks">
           <div className="column">
             <h2>Tarefas Adicionadas</h2>
             <div className="content">
-
               <Tasks
                 //tarefas não em andamento e não completas
                 tasks={tasks.filter((task) => !task.inProgress && !task.complete)}
@@ -115,7 +108,6 @@ const App = () => {
                 handleTaskInProgress={handleTaskInProgress}
               />
             </div>
-
           </div>
 
           <div className="column">
@@ -131,6 +123,7 @@ const App = () => {
               />
             </div>
           </div>
+
           <div className="column">
             <h2>Finalizadas</h2>
             <div className="content">
@@ -145,8 +138,7 @@ const App = () => {
           </div>
         </div>
 
-        <Modal open={openEditModal}
-          onClose={handleCloseEditModal}>
+        <Modal open={openEditModal} onClose={handleCloseEditModal}>
           <EditTask
             task={editingTask}
             handleEditTask={handleEditTask}

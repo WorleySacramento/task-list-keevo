@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import './addtasks.css'
-import Button from '../Button/button';
 import { AddCircleOutline } from '@mui/icons-material';
-import { TextField,IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 
 const AddTask = ({ handleTaskAdd }) => {
   const [taskTitle, setTaskTitle] = useState('');
@@ -36,12 +35,13 @@ const AddTask = ({ handleTaskAdd }) => {
           />
         </div>
         <div className='addInputDescription'>
-          <textarea
+          <input
             placeholder="Descrição da Tarefa"            
             value={taskDescription}
             onChange={handleChangeDescription}
             rows={2}
-            cols={10}
+            cols={5}
+            maxLength="100"
           />
         </div>
       </div>

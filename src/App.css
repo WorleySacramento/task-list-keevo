@@ -1,35 +1,12 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-.titleAddTask{
-  margin-top: -10px;
-}
-
-.wrapper{
+.wrapper {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
   height: 100%;
   width: 100%;
-  
 }
 
-.container{
-  /* grid-template-columns: 200px 200px 200px; */
-  
-  /* max-width: 400px;
-  min-width: 250px;
-  min-height: 300px;
-  border: 1px solid red;
-  align-items: baseline;
-  justify-content: center;
-  padding: 25px;
-  margin-top: 15px; */
+.container {
   height: 100%;
   padding: 25px;
   margin-top: 15px;
@@ -37,16 +14,17 @@
   justify-content: space-around;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 #fc9b1c;
-  background:
-   linear-gradient(176deg, rgba(54, 0, 129, 0.849) 0%, rgba(108,27,154,1) 35%, rgba(203,30,146,1) 100%);
-  /* border: #fc9b1c 2px solid; */
+  background: linear-gradient(176deg, rgba(54, 0, 129, 0.849) 0%, rgba(108, 27, 154, 1) 35%, rgba(203, 30, 146, 1) 100%);
   border-radius: 10px;
-color: #ffffff;
+  color: #ffffff;
 }
-.addTask{
-  /* background-origin: padding-box; */
+
+.titleAddTask {
+  margin-top: -10px;
+}
+
+.addTask {
   text-align: center;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.542); */
   box-shadow: 0px 1px 16px rgba(0, 0, 0, 0.542);
   margin-bottom: 30px;
 }
@@ -56,25 +34,25 @@ color: #ffffff;
   flex-direction: column;
   padding: 10px;
   width: 300px;
- max-width: 300px;
+  max-width: 300px;
   max-height: 500px;
   min-height: 300px;
   border-radius: 10px;
   border: #fc9b1c 2px solid;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  background-color: #8000807b; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #8000807b;
   text-align: center;
 }
 
-.content{
+.content {
   padding: 3px;
   overflow-y: auto;
   text-align: left;
 
 }
 
-.content::-webkit-scrollbar{
- width: 5px;
+.content::-webkit-scrollbar {
+  width: 5px;
 }
 
 .content::-webkit-scrollbar-thumb {
@@ -83,12 +61,12 @@ color: #ffffff;
 }
 
 .content::-webkit-scrollbar-track {
-  background-color: #eee; 
+  background-color: #eee;
 }
 
-.tasks{
+.tasks {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   gap: 5px;
@@ -97,12 +75,13 @@ color: #ffffff;
 
 
 @media (max-width: 768px) {
-  .container{
+  .container {
     width: 100%;
     padding: 25px;
     height: 100%;
-    margin:30px
+    margin: 30px
   }
+
   .tasks {
     display: grid;
     place-items: center;
@@ -111,44 +90,29 @@ color: #ffffff;
     width: 100% !important;
     height: 100%;
   }
+
   .column {
     width: 100% !important;
     height: 100px;
     padding: 15px;
   }
+
   .addTask {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     min-width: none;
-    width:100%;
+    width: 100%;
     text-align: center;
   }
 }
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

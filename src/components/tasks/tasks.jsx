@@ -1,8 +1,7 @@
 import React from "react";
 import ListItem from "../listitem/listItem";
 
-const Tasks = ({tasks, handleTaskState, handleRemoveTask, handleTaskEdit, handleEditTask, handleOpenEditModal, handleTaskInProgress}) => {
-    console.log(tasks);
+const Tasks = ({tasks, handleTaskState, handleRemoveTask, handleEditTask, handleOpenEditModal, handleTaskInProgress}) => {
     return ( 
         <div style={{height:300}}>
         { tasks?.map((task) =>( 
@@ -11,7 +10,7 @@ const Tasks = ({tasks, handleTaskState, handleRemoveTask, handleTaskEdit, handle
             task={task}  
             handleTaskState={handleTaskState} 
             handleRemoveTask={handleRemoveTask} 
-            handleEditTask={handleEditTask} // Adicione esta linha
+            handleEditTask={handleEditTask}
             handleOpenEditModal={handleOpenEditModal}
             handleTaskInProgress={handleTaskInProgress}
             />
