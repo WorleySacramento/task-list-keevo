@@ -1,18 +1,18 @@
 # Projeto de uma Todo-List em React.js
 
-##Adicionar Tarefas:
+## Adicionar Tarefas:
 A aplicação permite adicionar novas tarefas com um título e descrição. Cada tarefa tem um ID único, e os estados complete e inProgress são inicialmente definidos como false.
 
-##Remover Tarefas: 
+## Remover Tarefas: 
 A aplicação permite remover tarefas existentes.
 
-##Atualizar o Estado da Tarefa:
+## Atualizar o Estado da Tarefa:
 A aplicação permite atualizar o estado de uma tarefa para completa ou não completa. Quando uma tarefa é marcada como completa, ela é movida para a lista de tarefas completas.
 
-##Tarefas em Andamento:
+## Tarefas em Andamento:
 A aplicação permite marcar tarefas como “em andamento”.
 
-##Editar Tarefas: 
+## Editar Tarefas: 
 A aplicação permite editar o título e a descrição de uma tarefa existente.
 Interface do Usuário: A interface do usuário parece incluir botões para filtrar tarefas com base em seu estado (todas, em andamento, completas).
 
