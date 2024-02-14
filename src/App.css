@@ -3,15 +3,17 @@
   align-items: flex-end;
   justify-content: center;
   height: 100%;
-  width: 100%;
+  overflow: hidden;
+  padding: 10px;
 }
 
 .container {
   height: 100%;
+  width: 80%;
   padding: 25px;
   margin-top: 15px;
   display: flex;
-  justify-content: space-around;
+  align-items: center;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 #fc9b1c;
   background: linear-gradient(176deg, rgba(54, 0, 129, 0.849) 0%, rgba(108, 27, 154, 1) 35%, rgba(203, 30, 146, 1) 100%);
@@ -24,9 +26,14 @@
 }
 
 .addTask {
+  display: flex;
+  justify-content: center;
   text-align: center;
+  flex-direction: column;
   box-shadow: 0px 1px 16px rgba(0, 0, 0, 0.542);
   margin-bottom: 30px;
+  width: 70%;
+  border-radius: 8px;
 }
 
 .column {
@@ -42,6 +49,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #8000807b;
   text-align: center;
+  transform-style: preserve-3d;
 }
 
 .content {
@@ -73,6 +81,26 @@
   transition: all 0.3s ease;
 }
 
+.btnNav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: -20px 0px 20px 0px;
+  gap: 30px;
+}
+
+.btnNav button {
+  cursor: pointer;
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btnNav button:hover {
+  background: #8000807b;
+  color: #fef6eb;
+  border: #ff9e1f 1px solid;
+}
 
 @media (max-width: 768px) {
   .container {

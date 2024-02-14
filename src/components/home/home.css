@@ -1,0 +1,39 @@
+.homeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  padding: 50px 5px 0px 10px;
+  color: white;
+  font-family: Roboto 'sans serif';
+  flex-direction: column;
+}
+
+.homeContent {
+  border-radius: 8px;
+  justify-content: center;
+  display: flex;
+  background: #570f88;
+  box-shadow: 0 4px 8px 0 #fba568;
+  padding: 0px 20px 0px 20px;
+  width: 30%;
+  height: 300px;
+  min-width: 200px;
+}
+
+.textHome {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.buttonHome {
+  margin-top: 100px;
+  display: flex;
+  width: 50%;
+  align-items: center;
+  gap: 1;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer
+}

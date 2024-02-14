@@ -24,32 +24,36 @@ const AddTask = ({ handleTaskAdd }) => {
   return (
     <div className='addContainer'>
       <form>
-      <div className='inputFields'>
-        <div className='addInputTitle'>
-          <input
-            placeholder='Titulo'
-            type='text'
-            onChange={handleChangeTitle}
-            value={taskTitle}
-            required
-          />
+        <div className='inputFields'>
+          <div className='addInputTitle'>
+            <input
+              placeholder='Titulo'
+              type='text'
+              onChange={handleChangeTitle}
+              value={taskTitle}
+              required
+            />
+          </div>
+          <div className='addInputDescription'>
+            <textarea
+              placeholder="Descrição da Tarefa"
+              value={taskDescription}
+              onChange={handleChangeDescription}
+              cols={50}
+              rows={5}
+              maxLength={100}
+              required={
+                taskDescription
+
+              }
+            />
+          </div>
         </div>
-        <div className='addInputDescription'>
-          <input
-            placeholder="Descrição da Tarefa"            
-            value={taskDescription}
-            onChange={handleChangeDescription}
-            rows={2}
-            cols={5}
-            maxLength="100"
-          />
+        <div className='buttonContainer'>
+          <IconButton className='button' type='submit' onClick={handleClickAddTask}>
+            <AddCircleOutline />
+          </IconButton>
         </div>
-      </div>
-      <div className='buttonContainer'>
-        <IconButton type='submit' onClick={handleClickAddTask}>
-          <AddCircleOutline />
-        </IconButton>
-      </div>
       </form>
     </div>
   );
