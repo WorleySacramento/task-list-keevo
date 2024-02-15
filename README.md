@@ -1,4 +1,5 @@
-# Projeto de uma Todo-List em React.js com design totalmente responsivo!!!
+# Projeto de uma Todo-List em React.js
+### Design totalmente responsivo!!!
 
 ## Adicionar Tarefas:
 A aplicação permite adicionar novas tarefas com um título e descrição. Cada tarefa tem um ID único, e os estados complete e inProgress são inicialmente definidos como false.
