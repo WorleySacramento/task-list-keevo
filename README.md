@@ -1,4 +1,4 @@
-# Projeto de uma Todo-List em React.js
+# Projeto Front-End de uma Todo-List em React.js
 ### Design totalmente responsivo!!!
 
 ## Adicionar Tarefas:
